@@ -1,4 +1,4 @@
-# AI Engineer in 42 Days · Lala Se Lab Tak
+# AI Engineer in 42 Days Challenge · Lala Se Lab Tak
 
 **One reel, one project step and the day's code. Every day, for 42 days.**
 
