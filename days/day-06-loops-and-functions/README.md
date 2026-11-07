@@ -2,20 +2,30 @@
 
 **Week 1 · Python basics** · [← Day 5](../day-05-lists-and-dicts) · [Day 7 →](../day-07-files-and-json) · [Roadmap](../day-01-roadmap)
 
-> Chaddha sir: *"Rahul! Friday shaam, 100 tickets... haath se gino. Weekend bhool jao!"*
+> Chaddha sir: *"Rahul! Friday shaam hai. 100 tickets haath se gino, tabhi ghar jaana!"*
 
-## The idea: railway counter ki line
+## The idea: mummy ki rotiyan
 
-Picture a railway ticket counter. One person comes, the clerk does the same work. Next person, same work. Again and again.
+Mummy makes 10 rotiyan. For every roti she does the same work: **belo, seko, palto**. She does not write new instructions for roti number 7. That is a loop.
 
-| Python word | At the counter | What it does |
+| Python word | In the kitchen | What it does |
 |---|---|---|
-| **loop** (`for`) | The line of people | Does the same work for every item in a list |
+| **loop** (`for roti in rotiyan:`) | "Har roti ke liye..." | Does the same work for every item |
+| **indented block** (4 spaces) | belo, seko, palto | The work that repeats for each item |
+| **`range(1, 101)`** | Counting 1 to 100 | Gives numbers from 1 up to 100 (the stop, 101, is not included) |
 | **function** (`def`) | Giving the work a name | Packs the work into one named machine |
-| **return** | The clerk hands back the result | Sends the answer out of the function |
-| **call** (`ginti(tickets)`) | Calling the clerk by name | Runs the machine whenever you want |
+| **return** | The plate comes back | Sends the answer out of the function |
 
-**Ek baar likho, hazaar baar chalao.** Write it once, run it a thousand times.
+**Ek baar likho, hazaar baar chalao.** Write it once, run it a thousand times. Try [roti_loop.py](roti_loop.py).
+
+### The trap: `range(1, 100)` stops at 99
+
+`range` never includes its last number. `range(1, 100)` gives 1 to 99. For 1 to 100, write `range(1, 101)`. Run [range_trap.py](range_trap.py) and see it yourself.
+
+```python
+for i in range(1, 101):
+    print("Ticket", i)     # Ticket 1 ... Ticket 100
+```
 
 ## The code, line by line (same as the reel)
 
@@ -57,6 +67,7 @@ print(ginti(tickets))
 
 ## Aaj ka kaam (about 30 minutes)
 
+0. **Count 1 to 10 with range.** In a new file write `for i in range(1, 11):` and, 4 spaces inside, `print(i)`. Run it: you should see 1 to 10. Then try `range(1, 10)` and notice it stops at 9 (the trap from the reel). [range_trap.py](range_trap.py) shows both.
 1. **Run the loop.** Copy [loop_basics.py](loop_basics.py) and run it:
    ```
    python loop_basics.py
