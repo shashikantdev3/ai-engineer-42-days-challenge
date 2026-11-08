@@ -1,0 +1,11 @@
+id,status,category,title
+201,open,Password,Cannot log in after password change
+202,closed,VPN,VPN disconnects every 10 minutes
+203,open,Password,Account locked after 3 wrong tries
+204,open,Printer,Printer on 2nd floor not printing
+205,closed,VPN,VPN client will not install
+206,open,Email,Outlook not syncing new mails
+207,open,Password,Password reset link expired
+208,closed,Printer,Paper jam warning that never clears
+209,open,VPN,VPN very slow from home
+210,open,Password,Forgot password for HR portal

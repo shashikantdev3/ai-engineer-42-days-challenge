@@ -1,0 +1,7 @@
+[
+  {"id": 101, "status": "open", "category": "Password", "title": "Cannot log in after password change"},
+  {"id": 102, "status": "closed", "category": "Printer", "title": "Printer on 2nd floor not printing"},
+  {"id": 103, "status": "open", "category": "VPN", "title": "VPN disconnects every 10 minutes"},
+  {"id": 104, "status": "open", "category": "Password", "title": "Account locked after 3 wrong tries"},
+  {"id": 105, "status": "closed", "category": "Email", "title": "Outlook not syncing new mails"}
+]
