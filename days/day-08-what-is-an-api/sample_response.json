@@ -1,0 +1,16 @@
+{
+  "latitude": 26.85,
+  "longitude": 80.95,
+  "current_units": {
+    "time": "iso8601",
+    "interval": "seconds",
+    "temperature_2m": "°C",
+    "rain": "mm"
+  },
+  "current": {
+    "time": "2026-11-08T06:00",
+    "interval": 900,
+    "temperature_2m": 28.2,
+    "rain": 0.0
+  }
+}

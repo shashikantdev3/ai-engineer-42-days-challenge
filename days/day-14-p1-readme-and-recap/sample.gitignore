@@ -1,0 +1,12 @@
+# Copy this file into your P1 folder and rename it to .gitignore
+
+# Secrets: your API key lives here. Never on GitHub.
+.env
+
+# Python junk
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+venv/

@@ -1,0 +1,22 @@
+[
+  {"id": 101, "text": "Cannot login to the HR portal. Password reset link is not coming to my mail."},
+  {"id": 102, "text": "Printer on 3rd floor is showing paper jam again. Whole team cannot print invoices today."},
+  {"id": 103, "text": "VPN keeps disconnecting every 10 minutes when I work from home."},
+  {"id": 104, "text": "Outlook is not syncing new mails since morning. Last mail I see is from yesterday."},
+  {"id": 105, "text": "Need Excel installed on my new laptop for the monthly sales sheet."},
+  {"id": 106, "text": "Office wifi is down for all of the accounts team. Urgent, client call in 30 minutes."},
+  {"id": 107, "text": "My laptop screen flickers when I connect the second monitor."},
+  {"id": 108, "text": "Account locked after three wrong password tries. Please unlock."},
+  {"id": 109, "text": "Shared drive is very slow today, files take 2 minutes to open."},
+  {"id": 110, "text": "New joiner needs access to the ticketing tool and the team mail group."},
+  {"id": 111, "text": "Wireless mouse not working even after changing the battery."},
+  {"id": 112, "text": "Software update popup keeps coming and restarts my laptop in the middle of work."},
+  {"id": 113, "text": "Internet is down in the meeting room. Client demo is planned there tomorrow."},
+  {"id": 114, "text": "Getting a mail bounce error when sending to an outside address."},
+  {"id": 115, "text": "Please change my desk phone extension name, it still shows the old employee."},
+  {"id": 116, "text": "Antivirus software is asking for a licence key on my machine."},
+  {"id": 117, "text": "Projector in conference room B shows no signal from any laptop."},
+  {"id": 118, "text": "Need access to the finance folder for the audit this week."},
+  {"id": 119, "text": "Laptop battery drains in one hour. It is only one year old."},
+  {"id": 120, "text": "Calendar invites in Outlook show the wrong time zone for all meetings."}
+]
