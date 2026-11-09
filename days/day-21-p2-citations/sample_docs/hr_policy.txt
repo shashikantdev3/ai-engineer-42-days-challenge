@@ -1,0 +1,14 @@
+--- page 1 ---
+Lala Infotech HR Policy. This is a fictional sample document for practice. It is not a real company policy.
+
+--- page 2 ---
+Working hours. Office hours are 9:30 AM to 6:30 PM, Monday to Friday. Lunch break is 45 minutes.
+
+--- page 3 ---
+Leave. Every employee gets 18 paid leave in a year. Apply for leave at least 3 working days before.
+
+--- page 4 ---
+WFH (work from home). Every employee can take 2 WFH days per week, with manager approval. WFH is not allowed in the first month of joining.
+
+--- page 5 ---
+Laptop and ID card. If your laptop or ID card is lost, inform the IT helpdesk and your manager on the same day.

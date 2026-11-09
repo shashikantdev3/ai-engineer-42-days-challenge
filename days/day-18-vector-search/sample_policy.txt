@@ -1,0 +1,19 @@
+Lala Infotech HR Policy (fictional sample data). Leave: every employee gets 12 casual leave days in a year. Casual leave must be applied in the HR portal at least one day before.
+
+Sick leave: employees get 8 sick leave days in a year. For more than 2 sick days in a row, a doctor note is needed.
+
+Work from home: employees can work from home on Friday with manager approval. Work from home on other days needs a written request.
+
+Internet bill reimbursement: employees who work from home can claim their internet bill up to the monthly limit. Upload the bill in the HR portal before the 5th of next month.
+
+Laptop policy: the company laptop is for office work only. Do not install personal software. Report a lost laptop to IT support the same day.
+
+Notice period: the notice period is 60 days. It can be shorter if the manager and HR agree.
+
+Office timing: core hours are 11 AM to 4 PM. Employees can choose their start time between 8 AM and 11 AM.
+
+Travel claims: book office travel through the travel desk. Keep all receipts and submit the claim within 15 days of the trip.
+
+Holidays: the holiday list for the year is published in the HR portal in January. Employees can pick 2 optional holidays from the list.
+
+Appraisal: the appraisal form opens once a year in the HR portal. Fill it before the deadline, or the review moves to the next cycle.
