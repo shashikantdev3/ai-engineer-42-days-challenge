@@ -94,6 +94,37 @@ The free tier has limits on how many calls you can make in a short time. A small
 
 Free tier content is used to improve Google's products. So send only sample data like our kirana items. **Office ka data, customer ka data, tickets from work: kabhi nahi.** Use your own laptop and your own account.
 
+## Bonus: Bhai Dooj gift bot
+
+> Chaddha sir: *"Aaj Bhai Dooj hai aur behen ka gift bhool gaya! Budget 1000. 10 minute mein 3 idea!"*
+
+Same chef as today, new order. `bhai_dooj_gift.py` puts the budget and what she likes into the order (prompt) and asks for 3 ideas.
+
+```python
+from google import genai
+
+client = genai.Client()
+order = ("Bhai Dooj ke liye behen ka gift. Budget 1000 rupaye, isse upar nahi. "
+         "Use books aur plants pasand hain. 3 gift idea do, andaaze ki price ke saath.")
+r = client.interactions.create(model="gemini-3.8-flash", input=order)
+print(r.output_text)
+```
+
+A real answer (9 Nov 2026): an indoor plant with a ceramic pot (~₹500-700), a bestseller book with a bookmark (~₹400-600), a desk plant plus book combo (~₹700-900).
+
+### The trap: AI ki price = andaaza
+
+A plain LLM call does not see today's prices or what is in stock. The prices in the answer are guesses from what the model learned. **Check the price on a real site before you buy.**
+
+### The answer: how to stay inside the budget
+1. Write a clear order: the budget, what she likes, and how many ideas you want.
+2. Check the price and stock yourself.
+
+### Chef busy?
+On 9 Nov 2026 `gemini-3.8-flash` was overloaded for a while ("high demand", or no answer at all). `bhai_dooj_gift.py` waits 40 seconds, then asks `gemini-3.5-flash` instead. Same idea works for `first_llm_call.py`: change the model name if one is busy.
+
+Budget 1000 is an example. Comment **GIFT** on the reel when it runs.
+
 ## Files in this folder
 
 | File | What it is |
@@ -101,6 +132,7 @@ Free tier content is used to improve Google's products. So send only sample data
 | [check_key.py](check_key.py) | Standard library only. Checks `GEMINI_API_KEY`, the `google-genai` install, and warns if a key is typed inside your `.py` files |
 | [first_llm_call.py](first_llm_call.py) | The reel's code: one prompt, one answer. Needs `pip install -U google-genai` |
 | [loop_items.py](loop_items.py) | Bonus: 5 sample items in a loop with `likho()` and `time.sleep()`. Practice mode runs with the standard library only |
+| [bhai_dooj_gift.py](bhai_dooj_gift.py) | Bonus: Bhai Dooj gift bot. Budget and likes go into the order; falls back to a second model if the first is busy |
 
 **Pehli call ho gayi?** Comment **AI** on the Day 9 reel. Tomorrow, Day 10: tokens matlab paisa. AI ka har word paisa hai?
 

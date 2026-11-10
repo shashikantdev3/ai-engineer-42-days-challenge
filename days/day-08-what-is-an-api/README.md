@@ -96,6 +96,46 @@ Please keep the short wait for practice. Asking a free public API every second i
 - **No keys in code, ever.** Tomorrow's API needs a key, and keys never go into a file you upload to GitHub.
 - **No company data.** Your own laptop, your own accounts, public data only.
 
+## Bonus: AQI ka WFH bot (Delhi, after Diwali)
+
+> Chaddha sir: *"Diwali ke baad Delhi ka AQI 368! Har subah batao: aaj office ya WFH?"*
+
+Same waiter, new order: **hawa ki report**. `aqi_wfh.py` asks a free air quality API for Delhi's current AQI, and one `if` decides.
+
+```python
+import requests
+
+URL = "https://air-quality-api.open-meteo.com/v1/air-quality"
+p = {"latitude": 28.61, "longitude": 77.21, "current": "us_aqi"}
+r = requests.get(URL, params=p)
+cur = r.json()["current"]
+aqi = cur["us_aqi"]
+
+if aqi > 150:          # example company rule (ex.)
+    print("Aaj WFH")
+else:
+    print("Office aao")
+```
+
+Run it: `python aqi_wfh.py` (it also works without `requests`, using Python's built-in `urllib`).
+
+### The trap: 368 vs 177, so is the code wrong?
+
+On 9 Nov 2026 at 7 AM, CPCB showed Delhi's AQI as **368** ("very poor"). The API said **177**. Both are "right", because they measure different things:
+
+| | CPCB (SAMEER app) | This API (Open-Meteo) |
+|---|---|---|
+| Where the number comes from | Ground stations in the city | A model estimate on a grid (CAMS, about 45 km) |
+| Scale | India AQI | US AQI |
+
+**Lesson:** before you build a decision on an API's number, read its docs: where does the data come from, and which scale is it on? For a real decision, check the official number too.
+
+### Rules for the bot
+- The 150 line is a **made-up company rule for this example (ex.)**, not a government rule and not health advice. On the US scale, 151-200 is labelled "Unhealthy".
+- Open-Meteo is free for non-commercial use with no key, and asks for credit: *Air quality data by Open-Meteo.com, based on CAMS (Copernicus)*.
+
+**Try it:** change the city, or add `pm2_5` and print it too. Comment **AQI** on the reel when it runs.
+
 ## Files in this folder
 
 | File | What it is |
@@ -103,5 +143,6 @@ Please keep the short wait for practice. Asking a free public API every second i
 | [mausam.py](mausam.py) | Asks Open-Meteo for one city's weather, shows the 200 trap, says "truck roko" if it rains |
 | [har_ghante.py](har_ghante.py) | The loop + `time.sleep` version: checks the weather again and again |
 | [sample_response.json](sample_response.json) | A saved example answer, for practice without internet |
+| [aqi_wfh.py](aqi_wfh.py) | Bonus: Delhi AQI from Open-Meteo, and one `if` decides "Aaj WFH" or "Office aao" (example rule) |
 
 **Mausam print ho gaya?** Comment **API** on the Day 8 reel. Tomorrow, Day 9: yahi waiter AI se baat karega. Your first LLM API call.
