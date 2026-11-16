@@ -146,3 +146,25 @@ On 9 Nov 2026 at 7 AM, CPCB showed Delhi's AQI as **368** ("very poor"). The API
 | [aqi_wfh.py](aqi_wfh.py) | Bonus: Delhi AQI from Open-Meteo, and one `if` decides "Aaj WFH" or "Office aao" (example rule) |
 
 **Mausam print ho gaya?** Comment **API** on the Day 8 reel. Tomorrow, Day 9: yahi waiter AI se baat karega. Your first LLM API call.
+
+## Bonus: Outlook band, deal gayi?
+
+> Chaddha sir: *"Mail nahi gaya, to deal gayi!"*
+
+Last week Outlook was down for a while. Outages happen to everyone, so the real question is: **jab API band ho, to tumhara code kya kare?** Same waiter as today, three new habits:
+
+1. `timeout=5`: never wait forever for the waiter.
+2. Retry: 3 tries, 2 seconds apart (example values).
+3. Plan B: if all tries fail, the `else` of the `for` loop runs your backup.
+
+```python
+for k in range(3):
+    try:
+        print(call()); break
+    except requests.RequestException:
+        time.sleep(2)
+else:
+    print("Plan B: client ko call karo.")
+```
+
+[outage_retry.py](outage_retry.py) has the full code. Fake an outage on your own machine with `python outage_retry.py 0.001`: every try times out and Plan B prints.
