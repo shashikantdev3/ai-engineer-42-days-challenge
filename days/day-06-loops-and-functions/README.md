@@ -111,3 +111,23 @@ Use the sample tickets in these files or make up your own. Never paste real tick
 | [hundred_tickets.py](hundred_tickets.py) | Makes 100 sample tickets, counts them, prints the time taken |
 
 **ginti chal gaya?** Comment **LOOP** on the Day 6 reel. Tomorrow, Day 7: files and JSON, reading data from a file instead of typing it.
+
+## Bonus: GTA 6 India mein kitne baje?
+
+> Chaddha sir: *"New Zealand mein aaj shaam hi khulega! India mein kitne baje?"*
+
+The game unlocks at **midnight local time** in every country, so every city sees a different time. That is a timezone, and Python handles it with `zoneinfo`:
+
+```python
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
+IST = ZoneInfo("Asia/Kolkata")
+nz = datetime(2026, 11, 19, tzinfo=ZoneInfo("Pacific/Auckland"))
+print(nz.astimezone(IST))        # 2026-11-18 16:30:00+05:30, 7.5 hours before India
+
+launch = datetime(2026, 11, 19, tzinfo=IST)
+print(launch - datetime.now(IST))
+```
+
+**Trap:** without `tzinfo`, Python uses the machine's own clock. On a server that runs on UTC, your countdown is 5.5 hours wrong. [gta6_countdown.py](gta6_countdown.py) has the full version. On Windows, run `pip install tzdata` once if Python says no time zone was found.
