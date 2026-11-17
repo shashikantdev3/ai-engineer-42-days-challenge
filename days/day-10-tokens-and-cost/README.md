@@ -100,11 +100,46 @@ Use made-up tickets like the ones in these files. Never paste real company ticke
 
 And never type your API key into the code. Keep it the way you set it up on Day 9.
 
+## Bonus: Kal subah fog?
+
+> Chaddha sir: *"Kal subah 9:30 client demo. Fog ka bahana nahi chalega!"*
+
+Today you learned that every AI call has a bill. So first ask: **is kaam ke liye AI chahiye bhi?** An LLM does not know tomorrow's weather. A weather API does, and it is free: **0 tokens**. Same waiter as Day 8, new order: kal subah ki visibility.
+
+```python
+import requests
+
+URL = "https://api.open-meteo.com/v1/forecast"
+p = {"latitude": 28.61, "longitude": 77.21, "hourly": "visibility",
+     "timezone": "Asia/Kolkata", "forecast_days": 2}
+r = requests.get(URL, params=p)
+kal_7_baje = r.json()["hourly"]["visibility"][31]   # list starts today 00:00, so 24 + 7
+
+if kal_7_baje < 1000:
+    print("Fog ho sakta hai: 15 min pehle niklo")
+```
+
+[fog_alert.py](fog_alert.py) does the same for 6 to 9 AM, matches the hours by time instead of by position, and works even without `requests`.
+
+A real run (11 Nov 2026, 3:30 PM IST): the model said **5,660 m** for Delhi at 7 AM on 12 Nov. So the bot said: visibility theek.
+
+### The trap: model ka andaaza vs IMD
+
+IMD's Delhi forecast (issued 10 Nov 2026, 8:40 PM) said **"mist/shallow fog at most places in the morning hours"** for 12 Nov. IMD calls 500 to 999 m shallow fog. A model forecast can miss shallow fog, so the bot is an early alert, not the final word.
+
+### The answer
+
+1. **Alert:** the API. Free, 0 tokens, no AI needed.
+2. **Final call:** IMD's forecast ([mausam.imd.gov.in](https://mausam.imd.gov.in)), and a look out of the window in the morning.
+
+Under 1,000 m visibility counts as fog. "15 min pehle niklo" is an example rule (ex.), not advice. Weather data by [Open-Meteo.com](https://open-meteo.com) (CC BY 4.0). Comment **FOG** on the reel when it runs.
+
 ## Files in this folder
 
 | File | What it is |
 |---|---|
 | [estimate_tokens.py](estimate_tokens.py) | Rough token estimate (about 4 characters per token) for a sample ticket and two prompts. No internet, no key. |
 | [bill_calculator.py](bill_calculator.py) | Turns input and output tokens into a bill for 1 ticket and 1,000 tickets. Shows the 5 guna trap. |
+| [fog_alert.py](fog_alert.py) | Bonus: fog alert bot. Open-Meteo hourly visibility for tomorrow 6 to 9 AM and one if. No key, 0 tokens. |
 
 **Tokens gine?** Comment **TOKEN** on the Day 10 reel. Tomorrow, Day 11: Chaddha sir jaisa prompt mat likho. Role, task, context, format.
