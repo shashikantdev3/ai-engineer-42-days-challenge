@@ -1,0 +1,2 @@
+streamlink
+faster-whisper   # only needed for --captions
