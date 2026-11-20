@@ -82,6 +82,29 @@ print(final[:3])
 
 `kw_rank` and `vec_rank` are just ids sorted from best to worst. `rrf()` joins them.
 
+## Bonus: cricket rules bot (answers only from a note)
+
+India's Test in Wellington is on, and Chaddha sir has a cricket-mad client on Monday. The bot must answer "follow-on kya hota hai?" without guessing.
+
+```
+python cricket_rules_bot.py
+python cricket_rules_bot.py "follow-on kya hota hai?"
+python cricket_rules_bot.py --trap
+```
+
+How it works:
+1. `NOTE` is 6 short paras of rules, written in my own words. One para = one chunk.
+2. The same hybrid search as above: BM25 keyword + toy vector, joined with `rrf()`.
+3. **Two-umpire rule:** answer only if the top para is in the top 2 of BOTH searches. Otherwise print `Pata nahi`.
+4. The answer comes with its source: `[Note, para 2]`.
+
+The trap (`--trap`): with only one umpire, "kal match kaun jeetega?" matches the word "match" and the bot replies "5 din mein result na nikle to match draw hota hai". That is not a prediction, and the note has no predictions at all. With two umpires, the bot says `Pata nahi`.
+
+Notes:
+- The follow-on rule is MCC Law 14 in my words: in a match of 5 days or more, the side batting first and at least 200 runs ahead may make the other side bat again (150 for 3-4 days, 100 for 2 days, 75 for 1 day). It is the captain's choice. For the exact wording read [MCC Law 14](https://www.lords.org/mcc/the-laws-of-cricket/the-follow-on).
+- "Top 2 in both" is an example rule, not a standard. Tune it on your own questions.
+- The toy vector search only knows a few words, so "follow on" without the hyphen gets `Pata nahi`. A real embedding model (Day 15) fixes that.
+
 ## Files in this folder
 
 | File | What it is |
@@ -89,5 +112,6 @@ print(final[:3])
 | [hybrid_search.py](hybrid_search.py) | 10 sample chunks, BM25 keyword search, a toy vector search, RRF, and the top 3 of each |
 | [rrf_demo.py](rrf_demo.py) | Reciprocal rank fusion step by step on two small lists |
 | [trap_lower.py](trap_lower.py) | The Chhutti vs chhutti trap and the `lower()` fix |
+| [cricket_rules_bot.py](cricket_rules_bot.py) | Bonus: rules bot that answers only from a note, with a source, or says `Pata nahi` |
 
 **Hybrid chal gaya?** Comment **HYBRID** on the Day 19 reel. Tomorrow, Day 20: Project 2 part 1, Lala Policy Bot.
